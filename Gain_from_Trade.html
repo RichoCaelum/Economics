@@ -15,7 +15,6 @@
             color: #fff;
         }
 
-        /* Overlay untuk kontras */
         body::before {
             content: '';
             position: fixed;
@@ -23,7 +22,7 @@
             left: 0;
             height: 100%;
             width: 100%;
-            background: rgba(0, 0, 0, 0.5); /* gradasi gelap */
+            background: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
 
@@ -81,12 +80,36 @@
             transform: scale(1.05);
         }
 
+        .back {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #17a2b8;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+            transition: all 0.3s ease-in-out;
+            float: left;
+            margin-top: 20px;
+        }
+
+        .back:hover {
+            background-color: #138496;
+            transform: scale(1.05);
+        }
+
         h1, h2, h3, h4 {
             color: #00e5ff;
         }
 
         p {
             color: #f0f0f0;
+        }
+
+        .nav-buttons {
+            overflow: auto;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -114,8 +137,9 @@ kerugian dari produksi tambahan.
             </p>
 
             <img src="trade.png" alt="trade" height="400" width="300">
- 
-            <p>Pasar kompetitif bisa mencapai pareto efisien jika tidak ada dampak eksternal dan semua
+
+            <p>
+                Pasar kompetitif bisa mencapai pareto efisien jika tidak ada dampak eksternal dan semua
 kontrak lengkap, artinya tidak ada alokasi lain yang bisa membuat seseorang lebih baik tanpa
 merugikan orang lain. Namun, dalam praktiknya banyak kondisi ini tidak terpenuhi, karena ada
 eksternalitas, kontrak tidak lengkap, dan ketidaksempurnaan pasar. Selain efisiensi, penting juga
@@ -127,26 +151,28 @@ lebih besar, karena mereka kurang responsif terhadap perubahan harga.
 
             <h3>§5 Perubahan pada Supply dan Demand</h3>
 
-            <p>Ketika permintaan terhadap suatu barang meningkat, kurva permintaan bergeser ke kanan.
+            <p>
+                Ketika permintaan terhadap suatu barang meningkat, kurva permintaan bergeser ke kanan.
 Pergeseran ini disebut sebagai exogenous shock karena perubahan terjadi dari luar sistem
 ekonomi yang sedang dianalisis, misal karena perubahan selera atau pendapatan konsumen.
 Awalnya terjadi excess demand pada harga lama, yang mendorong penjual menaikkan harga
 dan meningkatkan kuantitas yang ditawarkan. Akhirnya, pasar mencapai keseimbangan baru
 dengan harga lebih tinggi dan jumlah barang yang terjual lebih banyak.
-
             </p>
 
             <img src="newdemand.png" alt="newdemand" height="400" width="300">
 
-            <p>Ketika permintaan meningkat, beberapa penjual melihat peluang untuk menaikkan harga karena
-banyak pembeli tetap ingin membeli meski stok habis, sehingga mereka menjadi price-maker.
-Dengan menaikkan harga, mereka memperoleh economic rent sementara dan mendorong produksi
-tambahan hingga tercapai keseimbangan baru. Saat pasar tidak seimbang, penjual dan pembeli
-bisa bertransaksi di harga berbeda untuk meraih keuntungan ekstra sebelum pasar kembali stabil.
-
+            <p>
+                Ketika permintaan terhadap suatu barang meningkat, kurva permintaan bergeser ke kanan.
+Pergeseran ini disebut sebagai exogenous shock karena perubahan terjadi dari luar sistem
+ekonomi yang sedang dianalisis, misal karena perubahan selera atau pendapatan konsumen.
+Awalnya terjadi excess demand pada harga lama, yang mendorong penjual menaikkan harga
+dan meningkatkan kuantitas yang ditawarkan. Akhirnya, pasar mencapai keseimbangan baru
+dengan harga lebih tinggi dan jumlah barang yang terjual lebih banyak.
             </p>
 
-            <p>Ketika produktivitas meningkat, kurva penawaran bergeser ke kanan. Pergeseran ini disebut
+            <p>
+                Ketika produktivitas meningkat, kurva penawaran bergeser ke kanan. Pergeseran ini disebut
 sebagai exogenous shock karena perubahan berasal dari inovasi teknologi, bukan dari perubahan
 harga itu sendiri. Awalnya terjadi excess supply pada harga lama, yang mendorong penjual
 menurunkan harga untuk menjual lebih banyak barang. Akhirnya, pasar mencapai keseimbangan
@@ -155,9 +181,12 @@ baru dengan harga lebih rendah dan jumlah barang yang terjual lebih banyak.
             </p>
 
             <img src="perubahan.png" alt="perubahan" height="400" width="300">
+        </section>
 
-            <a href="supply_demand1.html" class="back">&laquo; Back</a>
-
-            </main>
+        <div class="nav-buttons">
+            <a href="index.html" class="back">&laquo; Back</a>
+            <a href="index.html" class="next">Next &raquo;</a>
+        </div>
+    </main>
 </body>
 </html>
