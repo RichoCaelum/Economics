@@ -3,174 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OTW REVOLUSI</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: url('economy-bg.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-        }
-
-        /* Overlay untuk kontras */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5); /* gradasi gelap */
-            z-index: -1;
-        }
-
-        header {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-        }
-
-        nav a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #00e5ff;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            padding: 40px;
-            background-color: rgba(0, 0, 0, 0.6);
-            margin: 30px auto;
-            max-width: 900px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        }
-
-        img {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-        }
-
-        .next {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #28a745;
-            color: white;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(68, 3, 125, 0.2);
-            transition: all 0.3s ease-in-out;
-            float: right;
-            margin-top: 20px;
-        }
-
-        .next:hover {
-            background-color: #218838;
-            transform: scale(1.05);
-        }
-
-        h1, h2, h3, h4 {
-            color: #00e5ff;
-        }
-
-        p {
-            color: #f0f0f0;
-        }
-    </style>
+    <title>Richo - Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>HTML FOR ECONOMIC SUBJECT, inspired by Dickson Hartopo</h1>
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="tentang.html">Tentang</a> |
-            <a href="kontak.html">Kontak</a>
-        </nav>
-    </header>
-    
-    <main>
-        <section>
-            <h2>Supply and Demand</h2>
-            <h3>§1. Core Ideas</h3>
-            <p>
-                 Supply dan demand menentukan harga pasar melalui interaksi banyak pembeli dan penjual,
-                dimana masing-masing bertindak mengikuti harga (price-taker). Perubahan harga memberi
-                sinyal kepada individu untuk menyesuaikan produksi dan konsumsi mereka demi memaksimalkan
-                utilitas, sehingga sumber daya digunakan lebih efisien tanpa intervensi dari pemerintah.
-            </p>
+    <div class="video-background-container">
+        <video id="backgroundVideo" autoplay loop muted playsinline>
+            </video>
+        <div class="video-overlay"></div>
+    </div>
 
-            <h3>§2. Kurva Demand, Supply, dan Harga Pasar</h3>
-            <p><strong>Definition 2.1.</strong>  Kurva demand menggambarkan hubungan antara harga suatu barang dan
-jumlah barang yang ingin dibeli oleh konsumen. Setiap konsumen memiliki willingness to pay (WTP), yaitu harga maksimum yang bersedia mereka bayar untuk suatu produk yang berbeda-beda antar individu.
-Semakin rendah harga produk, semakin banyak konsumen yang tertarik membeli karena harga tersebut lebih rendah 
-dibandingkan dengan WTP mereka. Kurva demand dapat digambarkan dengan mengurutkan
-konsumen berdasarkan WTP mereka dari yang tertinggi hingga terendah, dan menunjukkan
-jumlah konsumen yang bersedia membeli produk pada berbagai tingkat harga.</p>
-            <img src="supplyanddemand.png" alt="supply and demand" height="400" width="300">
+    <div id="homePage" class="page active">
+        <header>
+            <h1>Daftar Lagu</h1>
+        </header>
+        <main>
+            <ul id="songList" class="song-list">
+                <li class="loading-songs">Memuat lagu...</li> 
+            </ul>
+        </main>
+    </div>
 
-            <p><strong>Definition 2.2.</strong> Kurva supply menunjukkan hubungan antara harga suatu barang dan jumlah
-barang yang bersedia dijual oleh produsen.
-Setiap produsen memiliki willingness to accept (WTA), yaitu harga minimum yang mereka
-terima untuk menjual produk tersebut, yang berbeda-beda antar individu. Semakin tinggi harga
-produk, semakin banyak penjual yang tertarik untuk menjual karena harga tersebut lebih tinggi
-dibandingkan dengan WTA mereka. Kurva supply dapat digambarkan dengan mengurutkan
-penjual berdasarkan WTA mereka dari yang terendah hingga tertinggi, dan menunjukkan jumlah
-barang yang akan dijual pada berbagai tingkat harga.</p>
-            <img src="supply.png" alt="supply curve" height="400" width="300">
+    <div id="songDetailPage" class="page">
+        <button id="backToHomeFromDetailBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</button>
+        <div class="song-detail-container">
+            <img id="detailAlbumArt" src="https://placehold.co/200x200/3a3a4e/e0e0e0?text=Art" alt="Album Art" class="detail-album-art">
+            <h2 id="detailTrackTitle">Judul Lagu</h2>
+            <p id="detailTrackArtist">Nama Artis</p>
+            <p id="detailAlbumName">Nama Album</p>
+            <button id="playFromDetailBtn" class="play-from-detail-btn"><i class="fas fa-play-circle"></i> Putar</button>
+        </div>
+    </div>
 
-            <p>arket mempertemukan pembeli dan penjual, di mana masing-masing ingin mendapatkan harga
-terbaik sesuai kepentingannya. Jika harga barang terlalu tinggi, pembeli akan sedikit, sehingga
-penjual terdorong menurunkan harga dan sebaliknya. Harga pasar akan cenderung menyesuaikan
-ke market clearing price, yaitu harga di mana jumlah buku yang diminta sama dengan jumlah
-yang ditawarkan. Sebagai contoh, pada diagram di bawah, harga pasar akan mendekati $8, di
-mana 24 pembeli dan 24 penjual sepakat bertransaksi..</p>
-            <img src="supplyanddemand.png" alt="market clearing" height="400" width="300">
+    <div id="playerPage" class="page">
+        <button id="backToHomeBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali</button>
+        <div class="music-player-container">
+            <div class="music-player-box">
+                <div class="player-header">
+                    <img id="albumArt" src="https://placehold.co/100x100/3a3a4e/e0e0e0?text=Art" alt="Album Art" class="album-art-player">
+                    <div class="track-info-player">
+                        <h2 id="playerTrackTitle">Judul Lagu</h2>
+                        <p id="playerTrackArtist">Nama Artis</p>
+                    </div>
+                </div>
 
-            <p>Pasar dikatakan mencapai equilibrium saat jumlah barang yang diminta sama dengan jumlah
-barang yang ditawarkan, sehingga tidak ada dorongan perubahan harga. Jika harga lebih tinggi
-dari harga keseimbangan, akan terjadi excess supply, di mana jumlah barang yang ditawarkan
-melebihi permintaan. Sebaliknya, jika harga lebih rendah dari harga keseimbangan, akan terjadi
-excess demand, di mana permintaan melebihi jumlah barang yang tersedia. Pada situasi
-ini, setiap pelaku ekonomi bertindak sebagai price-taker dan penyesuaian harga akan terus
-berlangsung sampai tercapai harga keseimbangan di mana supply dan demand seimbang.
-</p>
+                <div id="lyricsContainer" class="lyrics-container">
+                    <p>Lirik akan tampil di sini...</p>
+                </div>
 
-            <h4>§3 Perusahaan di Pasar Kompetitif</h4>
-            <p>Dalam pasar persaingan sempurna, ketika produk identik dan konsumen mudah beralih antar
-penjual, perusahaan menjadi price-taker dan tidak bisa menaikkan harga sesuka hati. Contohnya,
-di sebuah kota, banyak bakery kecil menjual baguette yang sama, dan satu bakery harus mengikuti
-harga pasar €2.35 agar bisa tetap menjual. Bakery tersebut akan memilih memproduksi sampai
-120 loaf per hari, karena hingga kapasitas itu, biaya marginal produksi (€1.50) masih lebih
-rendah dari harga jual, sehingga tiap loaf memberi surplus €0.85. Jika memproduksi lebih dari
-120 loaf, biaya tambahan naik menjadi €2.60 per loaf, menyebabkan kerugian per unit, jadi
-untuk memaksimalkan profit, bakery tetap di produksi 120 loaf.</p>
-            <img src="market.png" alt="competitive firm" height="400" width="300">
+                <div class="player-controls">
+                    <div class="progress-section-player">
+                        <div id="playerProgressBarContainer" class="progress-bar-container-player">
+                            <div id="playerProgressBar" class="progress-bar-player"></div>
+                        </div>
+                        <div class="time-display-player">
+                            <span id="playerCurrentTime">0:00</span>
+                            <span id="playerTotalDuration">0:00</span>
+                        </div> 
+                    </div>
 
-            <p>Dalam pasar kompetitif, kurva supply individu menggambarkan jumlah barang yang akan
-diproduksi oleh satu perusahaan pada berbagai tingkat harga, berdasarkan titik di mana harga
-pasar sama dengan biaya marginalnya. Misalnya, satu bakery akan memproduksi 120 roti saat
-harga €2.35, dan menambah produksi hingga 180 roti jika harga naik di atas €2.60. Sedangkan
-kurva supply pasar didapat dengan menjumlahkan seluruh kuantitas roti yang ditawarkan
-oleh semua bakery di kota pada setiap tingkat harga, diurutkan dari biaya marginal terendah.
-Contohnya, kurva penawaran pasar untuk 15 bakery akan menggabungkan semua roti yang bisa
-diproduksi, dari bakery dengan biaya produksi paling murah hingga paling mahal sesuai ilustrasi.</p>
-            <img src="demand.png" alt="market demand" height="400" width="300">
+                    <div class="main-controls-player">
+                        <button id="playerPrevBtn" class="control-btn-player"><i class="fas fa-backward-step"></i></button>
+                        <button id="playerPlayPauseBtn" class="control-btn-player play-pause-player"><i class="fas fa-play"></i></button>
+                        <button id="playerNextBtn" class="control-btn-player"><i class="fas fa-forward-step"></i></button>
+                    </div>
 
-            <!-- Tombol Next -->
-            <a href="Gain_from_Trade.html" class="next">Next &raquo;</a>
-        </section>
-    </main>
+                    <div class="secondary-controls-player">
+                        <button id="playerRepeatBtn" class="control-btn-player small-icon"><i class="fas fa-repeat"></i></button>
+                        <button id="playerShuffleBtn" class="control-btn-player small-icon"><i class="fas fa-shuffle"></i></button>
+                        <div class="volume-control-player">
+                            <i class="fas fa-volume-down volume-icon-player"></i>
+                            <input type="range" id="playerVolumeSlider" class="volume-slider-player" min="0" max="1" step="0.01" value="0.8">
+                            <i class="fas fa-volume-up volume-icon-player ml-1"></i>
+                        </div>
+                        <div class="playback-speed-control">
+                            <i class="fas fa-tachometer-alt speed-icon"></i>
+                            <input type="range" id="playerSpeedSlider" class="speed-slider" min="0.5" max="2.0" step="0.25" value="1.0">
+                            <span id="currentSpeedDisplay">1.0x</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="footer-credit">//Discord: sukmaa2_</p>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
